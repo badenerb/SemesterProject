@@ -1,0 +1,58 @@
+﻿@page
+@model SemesterProject.Pages.loginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+@*
+
+Form is displayed in the login page.
+It then sets it to variables.
+
+*@
+<div class="container">
+    <form method="post">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Login</h1>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-3 offset-sm-3 mylabels">
+                <label asp-for="EmailAddress">Email Address</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="text" asp-for="EmailAddress" class="w-100" />
+            </div>
+            <div class="col-sm-3">
+                <span asp-validation-for="EmailAddress"></span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-3 offset-sm-3 mylabels">
+                <label asp-for="Password">Password</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="password" asp-for="Password" class="w-100" />
+            </div>
+            <div class="col-sm-3">
+                <span asp-validation-for="Password"></span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-sm-3 offset-sm-6">
+                <input type="submit" value="Login" asp-page-handler="Login" class="btn btn-outline-warning my-2 my-sm-0" />
+                <input type="submit" value="Cancel" asp-page-handler="Cancel" class="btn btn-outline-success" formnovalidate />
+                <a href="/createAccount"><div class="createAccountBtn btn btn-outline-warning my-2 my-sm-0">Create an Account</div></a>
+            </div>
+        </div>
+        <label style="color:@Model.MessageColor">@Model.Message</label>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

@@ -1,0 +1,133 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@*
+
+The home page
+
+*@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            @*
+
+            This displays the message if they are logged in.
+
+            *@
+            <h1>Baden's Burgers</h1>
+            <h2>Welcome @Model.Fullname</h2>
+            <h2>@Model.Message</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="burgercarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+
+                @* Indicators *@
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#burgercarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#burgercarousel" data-bs-slide-to="1" class="active"></button>
+                    <button type="button" data-bs-target="#burgercarousel" data-bs-slide-to="2" class="active"></button>
+
+                </div>
+
+                @* The slideshow/carousel  *@
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/Pictures/burgersOnGrill.jpg" alt="Burgers sizzling on a grill" class="img-fluid w-50 m-auto d-block" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Pictures/fries.jpg" alt="French Fries" class="img-fluid w-50 m-auto d-block" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Pictures/burger.jpg" alt="Burger in full view" class="img-fluid w-50 m-auto d-block" />
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#burgercarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#burgercarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+@*
+
+Cards that are shown on the webpage as action points
+
+*@
+<div class="row card-row">
+    <div class="mx-auto col-sm-6 border card shadow p-3 mb-5 bg-white rounded">
+        <h2>Try our new cinnamon dessert fries!</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <img class="card-img" src="~/Pictures/fries_in_basket.jpg" />
+            </div>
+            <div class="col-sm-6 card-caption">
+                Check out our newest menu item: Cinnamon Dessert Fries! Our signature fries, with a cinnamon-sugar dusting, all rounded off nicely
+                with our signature cream cheese icing.
+            </div>
+            <div class="row">
+                <a href="./products" class="btn mx-auto card-btn btn-outline-warning">Add to order</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-auto col-sm-6 border card shadow p-3 mb-5 bg-white rounded">
+        <h2>Now offering takeout orders</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <img class="card-img" src="~/Pictures/takeout.jpg" />
+            </div>
+            <div class="col-sm-6 card-caption">
+                Skip the line and order before you come! We are now offering takeout as a new way to get your food faster! Get all the items you love to eat
+                and eat them from home.
+            </div>
+            <div class="row">
+                <a href="./products" class="btn mx-auto card-btn btn-outline-warning">Start your order</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row card-row">
+    <div class="mx-auto col-sm-6 border card shadow p-3 mb-5 bg-white rounded">
+        <h2>20% off Coupon: Chicken Sandwhich</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <img class="card-img" src="~/Pictures/chicken_sandwhich.jpg" />
+            </div>
+            <div class="col-sm-6 card-caption">
+                Get 20% off your next purchase of a chicken sandwhich by downloading this coupon. Must be presented in store and only one coupon may be used
+                per visit.
+            </div>
+            <div class="row">
+                <a href="./products" class="btn mx-auto card-btn btn-outline-warning">Download the coupon</a>
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto col-sm-6 border card shadow p-3 mb-5 bg-white rounded">
+        <h2>New! Artisan Shakes</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <img class="card-img" src="~/Pictures/shake.jpg" />
+            </div>
+            <div class="col-sm-6 card-caption">
+                We are now serving artisan, hand-crafted milkshakes. These milkshakes offer a hefty dessert topping of your choice. From donuts to cupcakes. 
+                Top your Artisan Shake with a delicious treat.
+            </div>
+            <div class="row">
+                <a href="./products" class="btn mx-auto card-btn btn-outline-warning">Add to order</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

@@ -1,0 +1,70 @@
+﻿@page
+@model SemesterProject.Pages.productsModel
+@{
+    ViewData["Title"] = "Menu";
+}
+
+@*
+
+This displays the products page
+
+*@
+<h1>Menu</h1>
+<div class="searchForm">
+    <form method="get" asp-page="./products">
+        <div class="form-actions">
+            <p>
+                <input type="text" name="SearchString" value="@Model.CurrentFilter" placeholder="Search Menu Item" />
+                <input type="submit" value="Search" class="btn btn-outline-warning" />
+
+                <a class="btn btn-outline-warning" asp-page="./products">Clear Search</a>
+            </p>
+            <div>
+
+            </div>
+            <div>
+                <a class="btn btn-outline-warning" asp-page="./category">Order by category</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@*
+
+The foreach loop, loops through the list of all of the products in the SQL database
+
+*@
+
+<div class="row">
+    @foreach (var item in Model.allproducts)
+    {
+        <div class="col-sm-5 mx-auto">
+            <div class="d-inline-block mx-auto col-sm-6 border card shadow p-3 mb-5 bg-white rounded w-100">
+                <div class="">
+                    <div class="card-title">
+                        <h6>Product ID: @item.ProductMasterID</h6>
+
+                    </div>
+                    <div class="card-subtitle">
+                        <h5>@item.ProductName</h5>
+                    </div>
+                    <div class="img-menu align-content-center">
+                        @{
+                            string imagePath = Url.Content(item.ImagePath);
+                        }
+                        <img src="@imagePath" class="img-fluid align-content-center">
+                    </div>
+                    <div class="card-subtitle">
+                        <h6>@item.ProductDesc</h6>
+                    </div>
+                    <div class="card-footer">
+                        <p class="card-text">
+                            $@item.ProductPrice
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>

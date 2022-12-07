@@ -1,0 +1,77 @@
+﻿@page
+@model SemesterProject.Pages.createAccountModel
+@{
+    ViewData["Title"] = "Create an Account";
+}
+
+@*
+
+This creates a form that users can create an account with
+The form then validates then sends it the SQL database
+
+*@
+<div class="row mx-auto">
+    <div class="col-sm-12">
+        <h1>Create an Account</h1>
+    </div>
+</div>
+<div class="container">
+    <form method="post" class="mx-auto">
+        <div class="row formRow">
+            <div class="col-sm-2 offset-sm-4 mylabels">
+                <label>Email</label>
+            </div>
+            <div class="col-sm-2 mylabels">
+                <input asp-for="EmailUsername" type="text" />
+            </div>
+        </div>
+        <div class="row formRow">
+            <div class="col-sm-2 offset-sm-4 mylabels">
+                <label>Password</label>
+            </div>
+            <div class="col-sm-2 mylabels">
+                <input asp-for="UserPassword" type="password" />
+            </div>
+        </div>
+        <div class="row formRow">
+            <div class="col-sm-2 offset-sm-4 mylabels">
+                <label>Confirm Password</label>
+            </div>
+            <div class="col-sm-2  mylabels">
+                <input asp-for="ConfirmUserPassword" type="password" />
+            </div>
+        </div>
+        <div class="row formRow">
+            <div class="col-sm-2 offset-sm-4 mylabels">
+                <label>First Name</label>
+            </div>
+            <div class="col-sm-2  mylabels">
+                <input asp-for="FirstName" type="text" />
+            </div>
+        </div>
+        <div class="row formRow">
+            <div class="col-sm-2 offset-sm-4 mylabels">
+                <label>Last Name</label>
+            </div>
+            <div class="col-sm-2  mylabels">
+                <input asp-for="LastName" type="text" />
+            </div>
+        </div>
+        <div class="row ">
+            <div class="row ">
+                <div class="col-sm-2 offset-sm-6">
+                    <input type="submit" value="Create" class="btn btn-outline-warning my-2 my-sm-0" asp-page-handler="Create" />
+                    <input type="submit" value="Cancel" class="btn btn-outline-success" asp-page-handler="Cancel" formnovalidate />
+                </div>
+            </div>
+        </div>
+        <label style="color:@Model.MessageColor">@Model.Message</label>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

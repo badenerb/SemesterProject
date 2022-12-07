@@ -1,0 +1,29 @@
+﻿@page
+@model SemesterProject.Pages.categoryModel
+@{
+    ViewData["Title"] = "Order by Category";
+}
+
+<h1>What do you want to enjoy today?</h1>
+
+@*
+
+Shows the categories that are stored in the SQL Database. Then loops through the list of the categories and displays them.
+
+*@
+<div class="row">
+    @foreach (var item in Model.categories)
+    {
+        <div class="col-sm-4 iconCont center-block">
+            @{
+                string imagePath = Url.Content(item.ImagePath);
+            }
+            <a asp-page="./productsCategory" asp-route-productcategoryID="@item.ProductCategoryID">
+                <div class="icon center-block">
+                    <img src="@imagePath" class="img-fluid align-content-center">
+                </div>
+                <div class="btn btn-outline-warning">@item.ProductCategoryName</div>
+            </a>
+        </div>
+    }
+</div>

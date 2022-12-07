@@ -1,0 +1,47 @@
+﻿@page
+@model SemesterProject.Pages.productsCategoryModel
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h1>Menu</h1>
+
+@*
+
+This loops through the list of the items that are limited by categories.
+
+*@
+<div class="row">
+    @foreach (var item in Model.productsbycategory)
+    {
+        <div class="col-sm-5 mx-auto">
+            <div class="d-inline-block mx-auto col-sm-6 border card shadow p-3 mb-5 bg-white rounded w-100">
+                <div class="">
+                    <div class="card-title">
+                        <h6>Product ID: @item.ProductMasterID</h6>
+
+                    </div>
+                    <div class="card-subtitle">
+                        <h5>@item.ProductName</h5>
+                    </div>
+                    <div class="img-menu align-content-center">
+                        @{
+                            string imagePath = Url.Content(item.ImagePath);
+                        }
+                        <img src="@imagePath" class="img-fluid align-content-center">
+                    </div>
+                    <div class="card-subtitle">
+                        <h6>@item.ProductDesc</h6>
+                    </div>
+                    <div class="card-footer">
+                        <h6>Category: @item.ProductCategory</h6>
+                        <p class="card-text">
+                            $@item.ProductPrice
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
